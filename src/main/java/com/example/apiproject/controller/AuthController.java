@@ -43,6 +43,8 @@ public class AuthController {
                 .token(token)
                 .build();
         var cookie = new Cookie("token", token);
+        cookie.setPath("/");
+        cookie.setMaxAge(30000000);
         response.addCookie(cookie);
         return Result.builder()
                 .success(true)
