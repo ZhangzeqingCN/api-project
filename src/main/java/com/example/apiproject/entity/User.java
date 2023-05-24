@@ -15,7 +15,6 @@ import lombok.*;
 @Table(name = "t_User")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     String name;
     String password;
     Gender gender = Gender.Unknown;
