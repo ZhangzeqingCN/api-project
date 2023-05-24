@@ -29,7 +29,7 @@ public class AuthInterceptor implements HandlerInterceptor {
 
     @Override
     public boolean preHandle(HttpServletRequest request, @NotNull HttpServletResponse response, @NotNull Object handler) throws Exception {
-        log.info(request.getHeader("token"));
+        log.info(String.format("preHandle token: %s", request.getHeader("token")));
         return true;
     }
 
@@ -39,7 +39,7 @@ public class AuthInterceptor implements HandlerInterceptor {
     }
 
     @Autowired
-    public void setMySecurity(MyJwtUtil jwtUtil) {
+    public void setJwtUtil(MyJwtUtil jwtUtil) {
         this.jwtUtil = jwtUtil;
     }
 }

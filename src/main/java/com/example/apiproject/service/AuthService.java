@@ -1,6 +1,6 @@
 package com.example.apiproject.service;
 
-import com.example.apiproject.domain.LoginDomain;
+import com.example.apiproject.domain.auth.LoginDomain;
 import com.example.apiproject.domain.Result;
 import com.example.apiproject.repository.UserRepository;
 import org.jetbrains.annotations.NotNull;

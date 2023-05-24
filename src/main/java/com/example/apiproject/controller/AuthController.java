@@ -1,7 +1,7 @@
 package com.example.apiproject.controller;
 
 
-import com.example.apiproject.domain.LoginDomain;
+import com.example.apiproject.domain.auth.LoginDomain;
 import com.example.apiproject.domain.Result;
 import com.example.apiproject.service.AuthService;
 import org.jetbrains.annotations.NotNull;
