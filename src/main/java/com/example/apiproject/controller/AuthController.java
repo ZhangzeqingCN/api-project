@@ -27,4 +27,10 @@ public class AuthController {
         return authService.login(loginDomain);
     }
 
+    @PostMapping("/register")
+    @NotNull
+    public Result register(@RequestBody @NotNull LoginDomain loginDomain) {
+        return authService.login(loginDomain);
+    }
+
 }

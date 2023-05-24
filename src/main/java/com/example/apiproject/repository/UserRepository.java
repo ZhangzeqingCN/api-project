@@ -9,23 +9,12 @@ import java.util.Optional;
 
 //DAO
 //<表名，主键>
-public interface UserRepository extends JpaRepository<User, Integer> {
-    Optional<User> findByIdAndName(Integer id, String name);
-
-    Optional<User> findById(Integer id);
-
+public interface UserRepository extends JpaRepository<User, String> {
     Optional<User> findByName(String name);
 
     Optional<User> findByNameAndPassword(String name, String password);
 
-    Optional<User> findByIdAndPassword(Integer id, String password);
-
     boolean existsByName(String name);
 
     boolean existsByNameAndPassword(String name, String password);
-
-
-    @Query(value = "from User m order by m.id, m.name")
-    List<User> anyFind();
-
 }
