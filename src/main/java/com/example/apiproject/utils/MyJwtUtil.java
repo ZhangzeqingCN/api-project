@@ -14,15 +14,11 @@ import java.util.*;
 public class MyJwtUtil {
     private final Algorithm algorithm = Algorithm.HMAC256("secret");
 
-    public String genToken(User user) {
-        return createToken(user, 60 * 1000);
+    public String createToken(String username) {
+        return createToken(username, 60 * 1000);
     }
 
-    private static final String identityKey = "username";
-
-    public String createToken(User user, int seconds) {
-        return createToken(user, Calendar.SECOND, seconds);
-    }
+    private static final String identityKey = "t-username";
 
     public Optional<User> decodeToken(String token) {
         try {
@@ -35,17 +31,17 @@ public class MyJwtUtil {
         }
     }
 
-    public String createToken(User user, int calendarField, int amount) {
+    public String createToken(String username, int seconds) {
 
         var calendar = Calendar.getInstance();
         var currentTime = calendar.getTime();
-        calendar.add(calendarField, amount);
+        calendar.add(Calendar.SECOND, seconds);
         var expirationTime = calendar.getTime();
 
         return JWT.create()
                 .withSubject("authentication")
                 .withIssuer("issuer")
-                .withClaim(identityKey, user.getName())
+                .withClaim(identityKey, username)
                 .withIssuedAt(currentTime)
                 .withExpiresAt(expirationTime)
                 .sign(algorithm);

@@ -24,7 +24,7 @@ public class AuthInterceptor implements HandlerInterceptor {
 
     @Override
     public void postHandle(@NotNull HttpServletRequest request, @NotNull HttpServletResponse response, @NotNull Object handler, ModelAndView modelAndView) throws Exception {
-
+        log.info(String.format("postHandle token: %s", request.getHeader("token")));
     }
 
     @Override
