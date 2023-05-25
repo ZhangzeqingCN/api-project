@@ -26,6 +26,7 @@ public class MyJwtUtil {
             String username = jwt.getClaim(identityKey).asString();
             return Optional.of(username);
         } catch (Exception e) {
+            log.error(String.format("Error decoding token: %s", e.getMessage()));
             return Optional.empty();
         }
     }

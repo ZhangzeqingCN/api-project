@@ -38,6 +38,7 @@ public class AuthInterceptor implements HandlerInterceptor {
 
         if (optionalUsername.isEmpty()) {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            log.info("No username in token");
             return false;
         }
 

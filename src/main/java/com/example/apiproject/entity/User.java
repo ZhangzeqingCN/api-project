@@ -17,5 +17,6 @@ public class User {
     @Id
     String name;
     String password;
+    @Builder.Default
     Gender gender = Gender.Unknown;
 }
