@@ -18,6 +18,4 @@ public class User {
     String name;
     String password;
     Gender gender = Gender.Unknown;
-    @Transient
-    String token;
 }

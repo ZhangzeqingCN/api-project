@@ -3,7 +3,6 @@ package com.example.apiproject.utils;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-import com.example.apiproject.entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -20,12 +19,12 @@ public class MyJwtUtil {
 
     private static final String identityKey = "t-username";
 
-    public Optional<User> decodeToken(String token) {
+    public Optional<String> decodeToken(String token) {
         try {
             var verifier = JWT.require(algorithm).build();
             var jwt = verifier.verify(token);
             String username = jwt.getClaim(identityKey).asString();
-            return Optional.of(User.builder().name(username).build());
+            return Optional.of(username);
         } catch (Exception e) {
             return Optional.empty();
         }
