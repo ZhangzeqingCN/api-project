@@ -4,9 +4,7 @@ package com.example.apiproject.controller;
 import com.example.apiproject.domain.Result;
 import com.example.apiproject.domain.auth.LoginDomain;
 import com.example.apiproject.domain.auth.RegisterDomain;
-import com.example.apiproject.repository.UserRepository;
-import com.example.apiproject.utils.MyJwtUtil;
-import jakarta.servlet.http.Cookie;
+import com.example.apiproject.service.AuthService;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
@@ -21,48 +19,23 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class AuthController {
 
-    private UserRepository userRepository;
-
-    private MyJwtUtil jwtUtil;
+    private AuthService authService;
 
     @Autowired
-    public void setUserRepository(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
-
-    @Autowired
-    public void setJwtUtil(MyJwtUtil jwtUtil) {
-        this.jwtUtil = jwtUtil;
+    public void setAuthService(AuthService authService) {
+        this.authService = authService;
     }
 
     @PostMapping("/login")
     @NotNull
-    public Result login(@RequestBody @NotNull LoginDomain loginDomain, @NotNull HttpServletResponse response) {
-
-        if (!userRepository.existsByNameAndPassword(loginDomain.getUsername(), loginDomain.getPassword())) {
-            String message = String.format("wrong username %s or password %s", loginDomain.getUsername(), loginDomain.getPassword());
-            log.info(message);
-            return Result.error(message).addErrors(loginDomain.getUsername()).addErrors(loginDomain.getPassword());
-        }
-
-        log.info(String.format("login username %s or password %s", loginDomain.getUsername(), loginDomain.getPassword()));
-
-        String token = jwtUtil.createToken(loginDomain.getUsername());
-        var cookie = new Cookie("token", token);
-        cookie.setPath("/");
-        cookie.setMaxAge(30000000);
-        response.addCookie(cookie);
-
-        return Result.success();
+    public Result login(@NotNull LoginDomain loginDomain, HttpServletResponse response) {
+        return authService.login(loginDomain, response);
     }
 
     @RequestMapping("/logout")
     @NotNull
-    public Result logout(@NotNull HttpServletResponse response) {
-        var cookie = new Cookie("token", "");
-        cookie.setPath("/");
-        cookie.setMaxAge(30000000);
-        response.addCookie(cookie);
+    public Result logout(HttpServletResponse response) {
+        authService.removeTokenCookie(response);
         return Result.success();
     }
 

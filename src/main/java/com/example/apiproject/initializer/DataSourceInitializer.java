@@ -21,7 +21,8 @@ public class DataSourceInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        userRepository.save(User.builder().name("user").password("123123").build());
+        userRepository.save(User.builder().name("user").password("61259cdf-9cb1-4981-b926-35ebe0906c29").build());
+        userRepository.save(User.builder().name("user1").password("123").build());
     }
 }
 

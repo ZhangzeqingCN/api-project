@@ -1,5 +1,6 @@
 package com.example.apiproject.domain.auth;
 
+import com.example.apiproject.entity.Gender;
 import lombok.*;
 
 @Builder
@@ -15,4 +16,6 @@ public class RegisterDomain {
     private String password2;
     private String email;
     private String phone;
+    @Builder.Default
+    private Gender gender = Gender.Unknown;
 }

@@ -20,6 +20,6 @@ public class MyInterceptorConfiguration implements WebMvcConfigurer {
         registry
                 .addInterceptor(authInterceptor)
                 .addPathPatterns("/**")
-                .excludePathPatterns("/auth/**", "/test/login");
+                .excludePathPatterns("/", "/auth/**", "/dev/**", "/css/**", "/favicon.ico");
     }
 }
