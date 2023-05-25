@@ -1,26 +1,34 @@
 <script setup lang="ts">
-function login() {
 
+import {ref} from "vue";
+
+const username = ref("")
+const password = ref("")
+
+function login() {
+    console.log(username.value, password.value)
+    fetch("http://localhost:8080/auth/login").then(res => res.json()).then(data => {
+        console.log(data)
+    });
 }
 </script>
 <template>
-<div class="container">
-<div class="login-box">
-    <h1>Login</h1>
-    <form th:action="@{/auth/login}" method="post">
-        <div class="form-group">
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username"/>
+    <div class="container">
+        <div class="login-box">
+            <h1>Login</h1>
+            <div>
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input v-model="username" type="text" id="username" name="username"/>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input v-model="password" type="password" id="password" name="password"/>
+                </div>
+                <button @click="login">Login</button>
+            </div>
         </div>
-        <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password"/>
-        </div>
-        <button type="submit">Login</button>
-        <a href="/test/register">Go to register</a>
-    </form>
-</div>
-</div>
+    </div>
 </template>
 
 <style scoped>
@@ -28,8 +36,9 @@ function login() {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 60vh;
     background-color: #f5f5f5;
+    color: #181818;
 }
 
 .login-box {
@@ -37,7 +46,7 @@ function login() {
     background-color: #fff;
     border-radius: 5px;
     padding: 30px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
