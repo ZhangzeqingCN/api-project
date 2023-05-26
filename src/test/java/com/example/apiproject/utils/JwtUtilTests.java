@@ -24,7 +24,7 @@ public class JwtUtilTests {
 
     @Test
     public void testGenerateToken() {
-        var token = jwtUtil.createToken("user", 300000000);
+        var token = jwtUtil.createToken("user", Integer.MAX_VALUE);
         log.info(token);
     }
 }

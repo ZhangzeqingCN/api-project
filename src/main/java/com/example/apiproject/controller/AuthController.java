@@ -28,7 +28,7 @@ public class AuthController {
 
     @PostMapping("/login")
     @NotNull
-    public Result login(@NotNull LoginDomain loginDomain, HttpServletResponse response) {
+    public Result login(@RequestBody @NotNull LoginDomain loginDomain, HttpServletResponse response) {
         return authService.login(loginDomain, response);
     }
 

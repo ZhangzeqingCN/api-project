@@ -8,10 +8,7 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/dev")
@@ -23,6 +20,18 @@ public class DevelopmentController {
     @Autowired
     public void setAuthService(AuthService authService) {
         this.authService = authService;
+    }
+
+    @GetMapping
+    @ResponseBody
+    public String testMessage() {
+        return "Hello!";
+    }
+
+    @PostMapping
+    @ResponseBody
+    public Object testResponse(@RequestBody @NotNull Object body) {
+        return body;
     }
 
     @GetMapping("/login")

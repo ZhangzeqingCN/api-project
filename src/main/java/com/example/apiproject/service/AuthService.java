@@ -1,5 +1,6 @@
 package com.example.apiproject.service;
 
+import com.example.apiproject.domain.DevMessage;
 import com.example.apiproject.domain.Result;
 import com.example.apiproject.domain.auth.LoginDomain;
 import com.example.apiproject.domain.auth.RegisterDomain;
@@ -40,7 +41,7 @@ public class AuthService {
         if (!userRepository.existsByNameAndPassword(loginDomain.getUsername(), loginDomain.getPassword())) {
             String message = String.format("wrong username %s or password %s", loginDomain.getUsername(), loginDomain.getPassword());
             log.info(message);
-            return Result.error(message).addErrors(loginDomain.getUsername()).addErrors(loginDomain.getPassword());
+            return Result.error(message).addErrors(message).addDevMessages(new DevMessage(loginDomain));
         }
 
         log.info(String.format("login username %s with password %s", loginDomain.getUsername(), loginDomain.getPassword()));
