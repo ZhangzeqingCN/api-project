@@ -109,8 +109,17 @@ public class AuthService {
      * @param response 当次的响应
      * @return 结果
      */
+    @NotNull
     public Result validateAndUpdateToken(@NotNull HttpServletRequest request, @NotNull HttpServletResponse response) {
         var cookies = request.getCookies();
+
+        if (cookies == null || cookies.length == 0) {
+            response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
+            var message = String.format("%s: No token in cookie", request.getRequestURL());
+            log.info(message);
+            return Result.error(message);
+        }
+
         Optional<Cookie> optionalCookie = Arrays.stream(cookies).filter(cookie -> cookie.getName().equals("token")).findAny();
         String token = optionalCookie.map(Cookie::getValue).orElse("");
 

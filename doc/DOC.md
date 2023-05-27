@@ -35,10 +35,18 @@ public class LoginDomain {
 
 ## ApiFox测试
 
-如下所示，请求体`{"username": "user1","password": "123123"}`作为`LoginDomain`被传入`login()`，而`Result`返回被解析成响应体中的
+- 如下所示，请求体`{"username": "user1","password": "123123"}`作为`LoginDomain`被传入`login()`，而`Result`返回被解析成响应体中的
 `{"success": false,"message": "wrong username user1 or password 123123","data": null,...}`
 
 ![img.png](api-fox-login.png)
+
+- 在涉及用户权限的检查时，需要在`Cookie`中加入`token`
+
+![img.png](api-fox-token.png)
+
+- 没有`token`时，会被拦截，返回`401 UNAUTHORIZED 未授权`
+
+![img.png](api-fox-no-token.png)
 
 # 数据库
 
