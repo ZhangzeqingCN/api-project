@@ -1,6 +1,6 @@
 package com.example.apiproject.domain.auth;
 
-import com.example.apiproject.entity.Gender;
+import com.example.apiproject.access.Gender;
 import lombok.*;
 
 @Builder

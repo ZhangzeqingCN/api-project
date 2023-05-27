@@ -4,7 +4,7 @@ import com.example.apiproject.domain.DevMessage;
 import com.example.apiproject.domain.Result;
 import com.example.apiproject.domain.auth.LoginDomain;
 import com.example.apiproject.domain.auth.RegisterDomain;
-import com.example.apiproject.entity.User;
+import com.example.apiproject.access.User;
 import com.example.apiproject.repository.UserRepository;
 import com.example.apiproject.utils.MyJwtUtil;
 import jakarta.servlet.http.Cookie;
