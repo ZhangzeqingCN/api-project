@@ -21,4 +21,5 @@ public class User {
     Gender gender = Gender.Unknown;
     String email;
     String phone;
+    String address;
 }
