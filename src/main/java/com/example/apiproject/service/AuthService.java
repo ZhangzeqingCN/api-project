@@ -19,6 +19,9 @@ import java.util.Arrays;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * @apiNote 用于用户权限的识别
+ */
 @Service
 @Slf4j
 public class AuthService {
