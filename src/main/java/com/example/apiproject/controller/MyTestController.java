@@ -1,6 +1,7 @@
 package com.example.apiproject.controller;
 
 
+import com.example.apiproject.domain.Result;
 import jakarta.servlet.http.HttpServletRequest;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Controller;
@@ -17,5 +18,10 @@ public class MyTestController {
     public String testMessage(@NotNull HttpServletRequest request) {
         var username = request.getAttribute("username");
         return String.format("Hello %s!", username);
+    }
+
+    @GetMapping("/error")
+    public Result error() {
+        throw new IllegalStateException("Error");
     }
 }
