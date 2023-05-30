@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,12 +48,12 @@ public class DataSourceInitializer implements CommandLineRunner {
         userRepository.saveAll(users);
 
         // commodities
-        commodityRepository.save(Commodity.builder().price(0.2F).name("Test").build());
+        commodityRepository.save(Commodity.builder().price(BigDecimal.valueOf(0.2)).commodityName("Test").build());
 
         final int initialCommodityNumber = 500;
         List<Commodity> commodities = new ArrayList<>(initialCommodityNumber);
         for (int i = 0; i < initialCommodityNumber; i++) {
-            commodities.add(Commodity.builder().name("commodity" + i).build());
+            commodities.add(Commodity.builder().commodityName("commodity" + i).build());
         }
         commodityRepository.saveAll(commodities);
 

@@ -11,13 +11,13 @@ import lombok.*;
 @ToString
 @EqualsAndHashCode
 @Entity
-@Table(name = "t_Purchasing")
-public class Purchasing {
+@Table(name = "t_Category")
+public class Category {
     @Id
+    @Column(name = "CategoryID")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Integer id;
-    @OneToOne
-    User user;
-    @OneToOne
-    Commodity commodity;
+    private int categoryId;
+
+    @Column(name = "CategoryName", length = 50)
+    private String categoryName;
 }

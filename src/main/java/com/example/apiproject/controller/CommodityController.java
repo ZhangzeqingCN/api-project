@@ -9,6 +9,7 @@ import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
@@ -24,7 +25,7 @@ public class CommodityController {
     }
 
     @PostMapping("/price")
-    public Result findByPrice(@RequestBody @NotNull Float price) {
+    public Result findByPrice(@RequestBody @NotNull BigDecimal price) {
         var result = new Result();
         List<Commodity> commodityList = commodityRepository.findByPrice(price);
         result.setSuccess(true);
