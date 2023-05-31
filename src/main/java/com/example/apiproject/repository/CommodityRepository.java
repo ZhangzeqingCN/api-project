@@ -7,5 +7,5 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public interface CommodityRepository extends JpaRepository<Commodity, Integer> {
-    List<Commodity> findByPrice(BigDecimal price);
+    List<Commodity> findByPrice(Float price);
 }

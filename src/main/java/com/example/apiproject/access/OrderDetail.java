@@ -17,7 +17,7 @@ import java.math.BigDecimal;
 public class OrderDetail {
     @Id
     @Column(name = "OrderDetailID")
-    private int orderDetailId;
+    private Integer orderDetailId;
 
     @ManyToOne
     @JoinColumn(name = "OrderID")
@@ -28,7 +28,7 @@ public class OrderDetail {
     private Commodity commodity;
 
     @Column(name = "Quantity")
-    private int quantity;
+    private Integer quantity;
 
     @Column(name = "UnitPrice", precision = 10, scale = 2)
     private BigDecimal unitPrice;

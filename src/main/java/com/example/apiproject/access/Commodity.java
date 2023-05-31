@@ -24,13 +24,13 @@ public class Commodity {
     private String commodityName;
 
     @Column(name = "Price", precision = 10, scale = 2)
-    private BigDecimal price;
+    private Float price;
 
     @Column(name = "CommodityDescription", length = 255)
     private String commodityDescription;
 
     @Column(name = "StockQuantity")
-    private int stockQuantity;
+    private Integer stockQuantity;
 
     @Column(name = "ImageURL", length = 200)
     private String imageUrl;

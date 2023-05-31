@@ -19,7 +19,7 @@ public class Order {
     @Id
     @Column(name = "OrderID")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int orderId;
+    private Integer orderId;
 
     @ManyToOne
     @JoinColumn(name = "Username")

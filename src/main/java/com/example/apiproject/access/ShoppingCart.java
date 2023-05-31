@@ -15,7 +15,7 @@ import lombok.*;
 public class ShoppingCart {
     @Id
     @Column(name = "CartID")
-    private int cartId;
+    private Integer cartId;
 
     @ManyToOne
     @JoinColumn(name = "Username")
@@ -26,5 +26,5 @@ public class ShoppingCart {
     private Commodity commodity;
 
     @Column(name = "Quantity")
-    private int quantity;
+    private Integer quantity;
 }

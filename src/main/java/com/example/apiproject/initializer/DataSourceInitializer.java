@@ -48,7 +48,7 @@ public class DataSourceInitializer implements CommandLineRunner {
         userRepository.saveAll(users);
 
         // commodities
-        commodityRepository.save(Commodity.builder().price(BigDecimal.valueOf(0.2)).commodityName("Test").build());
+        commodityRepository.save(Commodity.builder().price(0.2f).commodityName("Test").build());
 
         final int initialCommodityNumber = 500;
         List<Commodity> commodities = new ArrayList<>(initialCommodityNumber);
