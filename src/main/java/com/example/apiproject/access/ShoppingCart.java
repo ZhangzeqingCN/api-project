@@ -3,6 +3,8 @@ package com.example.apiproject.access;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Builder
 @Setter
 @Getter
@@ -17,13 +19,12 @@ public class ShoppingCart {
     @Column(name = "CartID")
     private Integer cartId;
 
-    @ManyToOne
+  /*  @ManyToOne
     @JoinColumn(name = "Username")
-    private User user;
+    private User user;*/
 
-    @ManyToOne
-    @JoinColumn(name = "CommodityID")
-    private Commodity commodity;
+    @OneToMany(mappedBy = "commodity",cascade = CascadeType.ALL)
+    private List<Commodity> commodity;
 
     @Column(name = "Quantity")
     private Integer quantity;

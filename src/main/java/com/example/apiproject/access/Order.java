@@ -33,4 +33,8 @@ public class Order {
 
     @Column(name = "TotalAmount", precision = 10, scale = 2)
     private BigDecimal totalAmount;
+
+    @OneToOne(cascade=CascadeType.ALL,fetch = FetchType.LAZY)
+    @JoinColumn(name = "OrderDetailID")
+    OrderDetail orderDetail;
 }

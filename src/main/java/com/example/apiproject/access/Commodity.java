@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 @EqualsAndHashCode
 @Entity
 @Table(name = "t_Commodity")
-public class Commodity {
+public class Commodity {//商品
     @Id
     @Column(name = "CommodityID")
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -38,4 +38,6 @@ public class Commodity {
     @ManyToOne
     @JoinColumn(name = "CategoryID")
     private Category category;
+
+
 }

@@ -2,6 +2,7 @@ package com.example.apiproject.access;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.engine.internal.Cascade;
 
 @Builder
 @Setter
@@ -32,4 +33,8 @@ public class User {
 
     @Column(name = "Address", length = 100)
     String address;
+
+    @OneToOne(cascade=CascadeType.ALL,fetch = FetchType.LAZY)
+    @JoinColumn(name = "UserCartID")
+    ShoppingCart shoppingCart;
 }

@@ -12,7 +12,7 @@ import lombok.*;
 @EqualsAndHashCode
 @Entity
 @Table(name = "t_Category")
-public class Category {
+public class Category {//种类
     @Id
     @Column(name = "CategoryID")
     @GeneratedValue(strategy = GenerationType.AUTO)
