@@ -2,6 +2,7 @@ package com.example.apiproject.controller;
 
 import com.example.apiproject.access.Commodity;
 import com.example.apiproject.domain.Result;
+import com.example.apiproject.domain.commodity.FindByPriceDomain;
 import com.example.apiproject.repository.CommodityRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
@@ -24,9 +25,9 @@ public class CommodityController {
     }
 
     @PostMapping("/price")
-    public Result findByPrice(@RequestBody @NotNull Float price) {
+    public Result findByPrice(@RequestBody @NotNull FindByPriceDomain findByPriceDomain) {
         var result = new Result();
-        List<Commodity> commodityList = commodityRepository.findByPrice(price);
+        List<Commodity> commodityList = commodityRepository.findByPrice(findByPriceDomain.getPrice());
         result.setSuccess(true);
         result.setData(commodityList);
         return result;
