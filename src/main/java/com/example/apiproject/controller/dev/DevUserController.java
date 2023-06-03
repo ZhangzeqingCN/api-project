@@ -3,11 +3,12 @@ package com.example.apiproject.controller.dev;
 import com.example.apiproject.access.User;
 import com.example.apiproject.domain.Result;
 import com.example.apiproject.repository.UserRepository;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/dev/commodity")
+@RequestMapping("/dev/user")
 public class DevUserController {
     private UserRepository userRepository;
 
@@ -27,8 +28,11 @@ public class DevUserController {
     }
 
     @PostMapping
-    public Result create(@RequestBody User user) {
+    public Result create(@RequestBody @NotNull User user) {
         try {
+            if (userRepository.existsByName(user.getName())) {
+                throw new IllegalArgumentException("User already exists");
+            }
             userRepository.save(user);
             return Result.success();
         } catch (Exception e) {

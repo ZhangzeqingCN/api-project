@@ -21,5 +21,6 @@ public class UserRepositoryTests {
     @Test
     public void testFindAll() {
         log.info(Arrays.toString(userRepository.findAll().toArray()));
+//        System.out.println(Arrays.toString(userRepository.findAll().toArray()));
     }
 }
