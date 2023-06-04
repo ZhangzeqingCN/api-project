@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/dev/order")
 @Slf4j
-public class OrderController {
+public class DevOrderController {
     @Autowired
     private OrderRepository orderRepository;
 

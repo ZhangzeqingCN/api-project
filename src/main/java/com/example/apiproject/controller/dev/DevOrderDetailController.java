@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/dev/orderDetail")
-public class OrderDetailController {
+public class DevOrderDetailController {
     @Autowired
     private OrderDetailRepository orderDetailRepository;
 

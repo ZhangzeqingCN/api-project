@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/dev/shoppingCart")
-public class ShoppingCartController {
+public class DevShoppingCartController {
     @Autowired
     private ShoppingCartRepository shoppingCartRepository;
 

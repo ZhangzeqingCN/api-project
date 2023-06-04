@@ -51,6 +51,21 @@
             <version>13.0</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-openapi3-jakarta-spring-boot-starter</artifactId>
+            <version>4.1.0</version>
+        </dependency>
+        <dependency>
+
+            <groupId>cn.hutool</groupId>
+
+            <artifactId>hutool-all</artifactId>
+
+            <version>5.8.0.M4</version>
+
+        </dependency>
+
     </dependencies>
 
     <build>

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/dev/user")
-public class UserController {
+public class DevUserController {
     private UserRepository userRepository;
 
     @Autowired

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/dev/commodity")
-public class CommodityController {
+public class DevCommodityController {
 
     @Autowired
     private CommodityRepository commodityRepository;
