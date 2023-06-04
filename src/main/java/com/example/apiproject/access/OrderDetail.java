@@ -17,11 +17,12 @@ import java.math.BigDecimal;
 public class OrderDetail {
     @Id
     @Column(name = "OrderDetailID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer orderDetailId;
 
-/*    @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "OrderID")
-    private Order order;*/
+    private Order order;
 
     @ManyToOne
     @JoinColumn(name = "CommodityID")
@@ -32,6 +33,4 @@ public class OrderDetail {
 
     @Column(name = "UnitPrice", precision = 10, scale = 2)
     private BigDecimal unitPrice;
-
-
 }

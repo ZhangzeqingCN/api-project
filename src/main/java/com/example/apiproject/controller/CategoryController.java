@@ -1,7 +1,8 @@
-package com.example.apiproject.controller.dev;
+package com.example.apiproject.controller;
 
 
-import com.example.apiproject.access.Category;
+
+
 import com.example.apiproject.access.Category;
 import com.example.apiproject.domain.Result;
 import com.example.apiproject.repository.CategoryRepository;
@@ -10,18 +11,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/dev/category")
+@RequestMapping("/category")
 @Slf4j
-public class DevCategoryController {
+public class CategoryController {
     
     @Autowired
     private CategoryRepository categoryRepository;
-
+    //查询所有商品种类
     @GetMapping("/all")
-    public Result all() {
+    public Result findAll() {
         return Result.success(categoryRepository.findAll());
     }
 
+
+    //更新种类信息
     @PutMapping
     public Result updateCategory(@RequestBody Category category){
         try {
@@ -32,6 +35,7 @@ public class DevCategoryController {
         }
     }
 
+    //如果该商品种类下的商品不为null，则无法删除
     @DeleteMapping
     public Result deleteCategoryById(@RequestParam Integer categoryId){
         try {
@@ -42,7 +46,7 @@ public class DevCategoryController {
         }
     }
 
-
+    //增加商品品种类信息
     @PostMapping
     public Result addCategory(@RequestBody Category category){
         try {

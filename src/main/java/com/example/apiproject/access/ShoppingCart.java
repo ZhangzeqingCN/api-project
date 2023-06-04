@@ -3,8 +3,6 @@ package com.example.apiproject.access;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.util.List;
-
 @Builder
 @Setter
 @Getter
@@ -16,15 +14,17 @@ import java.util.List;
 @Table(name = "t_ShoppingCart")
 public class ShoppingCart {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "CartID")
     private Integer cartId;
 
-  /*  @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "Username")
-    private User user;*/
+    private User user;
 
-    @OneToMany(mappedBy = "commodity",cascade = CascadeType.ALL)
-    private List<Commodity> commodity;
+    @ManyToOne
+    @JoinColumn(name = "CommodityID")
+    private Commodity commodity;
 
     @Column(name = "Quantity")
     private Integer quantity;

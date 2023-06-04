@@ -1,5 +1,6 @@
 package com.example.apiproject.repository;
 
+
 import com.example.apiproject.access.ShoppingCart;
 import com.example.apiproject.access.User;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,6 +11,6 @@ public interface ShoppingCartRepository extends JpaRepository<ShoppingCart,Integ
 
 
     //通过用户查询购物车
-    ShoppingCart findByUser(User user);
+    List<ShoppingCart> findShoppingCartByUser(User user);
 
 }
