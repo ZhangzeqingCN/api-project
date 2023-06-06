@@ -1,10 +1,13 @@
+// @ts-ignore
 import {createRouter, createWebHistory} from 'vue-router'
 // @ts-ignore
 import HomeView from '../views/HomeView.vue'
 
 // @ts-ignore
 
+
 const router = createRouter({
+    // @ts-ignore
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         {
@@ -26,6 +29,12 @@ const router = createRouter({
             name: 'login',
             // @ts-ignore
             component: () => import('../views/LoginView.vue')
+        },
+        {
+            path: '/test',
+            name: 'test',
+            // @ts-ignore
+            component: () => import('../views/TestView.vue')
         }
     ]
 })
