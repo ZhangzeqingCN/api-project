@@ -10,7 +10,7 @@ public class AuthController {
 
     @PostMapping("/login")
     @NotNull
-    public Result login(@RequestBody @NotNull LoginDomain loginDomain, HttpServletResponse response) {
+    public Result login(@RequestBody @NotNull LoginDomain loginRequestBody, HttpServletResponse response) {
         return Result.success();
     }
 }

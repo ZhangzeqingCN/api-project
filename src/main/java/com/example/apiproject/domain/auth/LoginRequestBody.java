@@ -9,7 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class LoginDomain {
+public class LoginRequestBody {
     private String username;
     private String password;
 }

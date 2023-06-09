@@ -1,6 +1,6 @@
 package com.example.apiproject.controller;
 
-import com.example.apiproject.access.User;
+import com.example.apiproject.entity.User;
 import com.example.apiproject.domain.Result;
 import com.example.apiproject.repository.UserRepository;
 import org.jetbrains.annotations.NotNull;

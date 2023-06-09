@@ -1,6 +1,6 @@
 package com.example.apiproject.controller;
 
-import com.example.apiproject.access.Commodity;
+import com.example.apiproject.entity.Commodity;
 import com.example.apiproject.domain.Result;
 import com.example.apiproject.domain.commodity.FindByPriceDomain;
 import com.example.apiproject.repository.CommodityRepository;

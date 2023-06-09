@@ -1,4 +1,4 @@
-package com.example.apiproject.exceptionhandler;
+package com.example.apiproject.exception;
 
 import com.example.apiproject.domain.Result;
 import lombok.extern.slf4j.Slf4j;

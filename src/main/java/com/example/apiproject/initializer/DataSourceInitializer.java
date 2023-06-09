@@ -1,7 +1,7 @@
 package com.example.apiproject.initializer;
 
-import com.example.apiproject.access.Commodity;
-import com.example.apiproject.access.User;
+import com.example.apiproject.entity.Commodity;
+import com.example.apiproject.entity.User;
 import com.example.apiproject.repository.CommodityRepository;
 import com.example.apiproject.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

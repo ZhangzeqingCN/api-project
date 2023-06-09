@@ -1,4 +1,4 @@
-package com.example.apiproject.access;
+package com.example.apiproject.entity;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;

@@ -2,8 +2,8 @@ package com.example.apiproject.controller;
 
 
 import com.example.apiproject.domain.Result;
-import com.example.apiproject.domain.auth.LoginDomain;
-import com.example.apiproject.domain.auth.RegisterDomain;
+import com.example.apiproject.domain.auth.LoginRequestBody;
+import com.example.apiproject.domain.auth.RegisterRequestBody;
 import com.example.apiproject.service.AuthService;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
@@ -28,19 +28,19 @@ public class AuthController {
 
     @PostMapping("/login")
     @NotNull
-    public Result login(@RequestBody @NotNull LoginDomain loginDomain, HttpServletResponse response) {
-        return authService.login(loginDomain, response);
+    public Result login(@RequestBody @NotNull LoginRequestBody loginRequestBody, HttpServletResponse response) {
+        return authService.login(loginRequestBody, response);
     }
 
     @RequestMapping("/logout")
     @NotNull
     public Result logout(HttpServletResponse response) {
-        authService.removeTokenCookie(response);
+        authService.removeToken(response);
         return Result.success();
     }
 
     @PostMapping("/register")
-    public Result register(@RequestBody @NotNull RegisterDomain registerDomain) {
+    public Result register(@RequestBody @NotNull RegisterRequestBody registerRequestBody) {
         return Result.success();
     }
 

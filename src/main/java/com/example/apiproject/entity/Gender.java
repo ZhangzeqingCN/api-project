@@ -1,4 +1,4 @@
-package com.example.apiproject.access;
+package com.example.apiproject.entity;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 import lombok.AllArgsConstructor;
