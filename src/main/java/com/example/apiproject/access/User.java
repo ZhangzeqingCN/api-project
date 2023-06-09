@@ -2,6 +2,7 @@ package com.example.apiproject.access;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 
 @Builder

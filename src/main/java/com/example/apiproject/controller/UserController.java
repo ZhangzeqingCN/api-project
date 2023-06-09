@@ -1,4 +1,4 @@
-package com.example.apiproject.controller.dev;
+package com.example.apiproject.controller;
 
 import com.example.apiproject.access.User;
 import com.example.apiproject.domain.Result;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/dev/user")
-public class DevUserController {
+public class UserController {
     private UserRepository userRepository;
 
     @Autowired
