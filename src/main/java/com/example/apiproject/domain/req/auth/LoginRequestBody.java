@@ -1,4 +1,4 @@
-package com.example.apiproject.domain.auth;
+package com.example.apiproject.domain.req.auth;
 
 import lombok.*;
 
@@ -6,10 +6,12 @@ import lombok.*;
 @Setter
 @Getter
 @AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor(force = true)
 @ToString
 @EqualsAndHashCode
-public class LoginDomain {
+public class LoginRequestBody {
+    @NonNull
     private String username;
+    @NonNull
     private String password;
 }

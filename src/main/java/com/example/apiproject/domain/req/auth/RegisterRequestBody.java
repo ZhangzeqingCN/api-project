@@ -1,19 +1,24 @@
-package com.example.apiproject.domain.auth;
+package com.example.apiproject.domain.req.auth;
 
 import com.example.apiproject.access.Gender;
+import jakarta.validation.constraints.Email;
 import lombok.*;
 
 @Builder
 @Setter
 @Getter
 @AllArgsConstructor
-@NoArgsConstructor
+@NoArgsConstructor(force = true)
 @ToString
 @EqualsAndHashCode
-public class RegisterDomain {
+public class RegisterRequestBody {
+    @NonNull
     private String username;
+    @NonNull
     private String password1;
+    @NonNull
     private String password2;
+    @Email
     private String email;
     private String phone;
     @Builder.Default

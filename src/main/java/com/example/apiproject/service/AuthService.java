@@ -1,9 +1,8 @@
 package com.example.apiproject.service;
 
-import com.example.apiproject.domain.DevMessage;
 import com.example.apiproject.domain.Result;
-import com.example.apiproject.domain.auth.LoginDomain;
-import com.example.apiproject.domain.auth.RegisterDomain;
+import com.example.apiproject.domain.req.auth.LoginRequestBody;
+import com.example.apiproject.domain.req.auth.RegisterRequestBody;
 import com.example.apiproject.access.User;
 import com.example.apiproject.repository.UserRepository;
 import com.example.apiproject.utils.MyJwtUtil;
@@ -40,39 +39,39 @@ public class AuthService {
     }
 
     @NotNull
-    public Result login(@NotNull LoginDomain loginDomain, @NotNull HttpServletResponse response) {
-        if (!userRepository.existsByNameAndPassword(loginDomain.getUsername(), loginDomain.getPassword())) {
-            String message = String.format("wrong username %s or password %s", loginDomain.getUsername(), loginDomain.getPassword());
+    public Result login(@NotNull LoginRequestBody loginRequestBody, @NotNull HttpServletResponse response) {
+        if (!userRepository.existsByNameAndPassword(loginRequestBody.getUsername(), loginRequestBody.getPassword())) {
+            String message = String.format("wrong username %s or password %s", loginRequestBody.getUsername(), loginRequestBody.getPassword());
             log.info(message);
-            return Result.error(message).addErrors(message).addDevMessages(new DevMessage(loginDomain));
+            return Result.error(message).addErrors(message).addErrors(loginRequestBody);
         }
 
-        log.info(String.format("login username %s with password %s", loginDomain.getUsername(), loginDomain.getPassword()));
+        log.info(String.format("login username %s with password %s", loginRequestBody.getUsername(), loginRequestBody.getPassword()));
 
-        setTokenCookie(loginDomain.getUsername(), response);
+        setTokenCookie(loginRequestBody.getUsername(), response);
 
         return Result.success();
     }
 
     @NotNull
-    public Result register(@NotNull RegisterDomain registerDomain) {
+    public Result register(@NotNull RegisterRequestBody registerRequestBody) {
 
-        if (userRepository.existsByName(registerDomain.getUsername())) {
-            String message = String.format("username %s already exists", registerDomain.getUsername());
+        if (userRepository.existsByName(registerRequestBody.getUsername())) {
+            String message = String.format("username %s already exists", registerRequestBody.getUsername());
             log.info(message);
-            return Result.error(message).addErrors(registerDomain.getUsername());
+            return Result.error(message).addErrors(registerRequestBody.getUsername());
         }
 
-        if (!Objects.equals(registerDomain.getPassword1(), registerDomain.getPassword2())) {
+        if (!Objects.equals(registerRequestBody.getPassword1(), registerRequestBody.getPassword2())) {
             String message = "inconsistent two passwords";
             log.info(message);
             return Result.error(message);
         }
 
         userRepository.save(User.builder()
-                .name(registerDomain.getUsername())
-                .password(registerDomain.getPassword1())
-                .gender(registerDomain.getGender())
+                .name(registerRequestBody.getUsername())
+                .password(registerRequestBody.getPassword1())
+                .gender(registerRequestBody.getGender())
                 .build());
 
         return Result.success();

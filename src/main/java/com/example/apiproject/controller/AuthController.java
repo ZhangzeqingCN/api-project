@@ -2,13 +2,14 @@ package com.example.apiproject.controller;
 
 
 import com.example.apiproject.domain.Result;
-import com.example.apiproject.domain.auth.LoginDomain;
-import com.example.apiproject.domain.auth.RegisterDomain;
+import com.example.apiproject.domain.req.auth.LoginRequestBody;
+import com.example.apiproject.domain.req.auth.RegisterRequestBody;
 import com.example.apiproject.service.AuthService;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,8 +29,8 @@ public class AuthController {
 
     @PostMapping("/login")
     @NotNull
-    public Result login(@RequestBody @NotNull LoginDomain loginDomain, HttpServletResponse response) {
-        return authService.login(loginDomain, response);
+    public Result login(@RequestBody @NotNull @Validated LoginRequestBody loginRequestBody, HttpServletResponse response) {
+        return authService.login(loginRequestBody, response);
     }
 
     @RequestMapping("/logout")
@@ -40,8 +41,8 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public Result register(@RequestBody @NotNull RegisterDomain registerDomain) {
-        return Result.success();
+    public Result register(@RequestBody @NotNull @Validated RegisterRequestBody registerRequestBody) {
+        return authService.register(registerRequestBody);
     }
 
 

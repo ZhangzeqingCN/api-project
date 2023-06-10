@@ -19,7 +19,6 @@ public class Result {
     private String message;
     private Object data;
     public final List<Object> errors = new ArrayList<>();
-    public final List<Object> devMessages = new ArrayList<>();
 
     public static Result success() {
         return Result.builder().success(true).build();
@@ -37,10 +36,4 @@ public class Result {
         errors.add(error);
         return this;
     }
-
-    public Result addDevMessages(Object devMessage) {
-        devMessages.add(devMessage);
-        return this;
-    }
-
 }
