@@ -10,7 +10,6 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
 @ToString
-@EqualsAndHashCode
 public class RegisterRequestBody {
     @NonNull
     private String username;

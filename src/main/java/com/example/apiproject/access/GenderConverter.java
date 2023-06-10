@@ -2,16 +2,17 @@ package com.example.apiproject.access;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
+import org.jetbrains.annotations.NotNull;
 
 @Converter
 public class GenderConverter implements AttributeConverter<Gender, Integer> {
     @Override
-    public Integer convertToDatabaseColumn(Gender g) {
+    public Integer convertToDatabaseColumn(@NotNull Gender g) {
         return g.code;
     }
 
     @Override
-    public Gender convertToEntityAttribute(Integer code) {
+    public Gender convertToEntityAttribute(@NotNull Integer code) {
         return switch (code) {
             case 1 -> Gender.Male;
             case 2 -> Gender.Female;

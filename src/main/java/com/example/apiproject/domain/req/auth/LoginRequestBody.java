@@ -8,7 +8,6 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
 @ToString
-@EqualsAndHashCode
 public class LoginRequestBody {
     @NonNull
     private String username;
