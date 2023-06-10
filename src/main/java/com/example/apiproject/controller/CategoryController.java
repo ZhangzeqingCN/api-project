@@ -14,9 +14,14 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/category")
 @Slf4j
 public class CategoryController {
-    
-    @Autowired
+
     private CategoryRepository categoryRepository;
+
+    @Autowired
+    public void setCategoryRepository(CategoryRepository categoryRepository) {
+        this.categoryRepository = categoryRepository;
+    }
+
     //查询所有商品种类
     @GetMapping("/all")
     public Result findAll() {

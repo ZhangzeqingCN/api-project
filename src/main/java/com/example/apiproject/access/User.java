@@ -10,7 +10,6 @@ import org.hibernate.engine.internal.Cascade;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@EqualsAndHashCode
 @Entity
 @Table(name = "t_User")
 public class User {
