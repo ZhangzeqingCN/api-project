@@ -6,6 +6,7 @@ import com.example.apiproject.domain.req.auth.LoginRequestBody;
 import com.example.apiproject.domain.req.auth.RegisterRequestBody;
 import com.example.apiproject.service.AuthService;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,7 @@ public class AuthController {
 
     @PostMapping("/login")
     @NotNull
-    public Result login(@RequestBody @NotNull @Validated LoginRequestBody loginRequestBody, HttpServletResponse response) {
+    public Result login(@RequestBody @NotNull @Valid LoginRequestBody loginRequestBody, HttpServletResponse response) {
         return authService.login(loginRequestBody, response);
     }
 
@@ -41,9 +42,8 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public Result register(@RequestBody @NotNull @Validated RegisterRequestBody registerRequestBody) {
+    public Result register(@RequestBody @NotNull @Valid RegisterRequestBody registerRequestBody) {
         return authService.register(registerRequestBody);
     }
-
 
 }
