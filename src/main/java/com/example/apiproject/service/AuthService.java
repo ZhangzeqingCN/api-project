@@ -38,9 +38,16 @@ public class AuthService {
         this.jwtUtil = jwtUtil;
     }
 
+    /**
+     *
+     * @param loginRequestBody login request body
+     * @param response login request response
+     * @return login result
+     */
     @NotNull
     public Result login(@NotNull LoginRequestBody loginRequestBody, @NotNull HttpServletResponse response) {
         if (!userRepository.existsByNameAndPassword(loginRequestBody.getUsername(), loginRequestBody.getPassword())) {
+            // 登录失败 wrong username %s or password %s
             String message = String.format("wrong username %s or password %s", loginRequestBody.getUsername(), loginRequestBody.getPassword());
             log.info(message);
             return Result.error(message).addErrors(message).addErrors(loginRequestBody);
@@ -53,6 +60,11 @@ public class AuthService {
         return Result.success();
     }
 
+    /**
+     *
+     * @param registerRequestBody register request body
+     * @return Result
+     */
     @NotNull
     public Result register(@NotNull RegisterRequestBody registerRequestBody) {
 

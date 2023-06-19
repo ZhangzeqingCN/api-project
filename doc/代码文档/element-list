@@ -1,0 +1,15 @@
+com.example.apiproject
+com.example.apiproject.access
+com.example.apiproject.configuration
+com.example.apiproject.controller
+com.example.apiproject.controller.dev
+com.example.apiproject.domain
+com.example.apiproject.domain.req.auth
+com.example.apiproject.domain.res.auth
+com.example.apiproject.exception
+com.example.apiproject.exceptionhandler
+com.example.apiproject.initializer
+com.example.apiproject.interceptor
+com.example.apiproject.repository
+com.example.apiproject.service
+com.example.apiproject.utils

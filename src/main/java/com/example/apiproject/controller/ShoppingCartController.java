@@ -15,6 +15,9 @@ public class ShoppingCartController {
     @Autowired
     private ShoppingCartRepository shoppingCartRepository;
 
+    /**
+     * @return the shoppingCart information
+     */
     //查看所有购物车信息
     @GetMapping("/all")
     public Result findAll() {
@@ -37,6 +40,11 @@ public class ShoppingCartController {
         }
     }
 
+    /**
+     *
+     * @param shoppingCartId shoppingCartId
+     * @return Result
+     */
     //根据id删除商品信息
     @DeleteMapping
     public Result deleteShoppingCartById(@RequestParam Integer shoppingCartId){

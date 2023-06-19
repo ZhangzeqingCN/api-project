@@ -7,6 +7,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+/**
+ * @author 张泽清
+ * @apiNote 用于实现鉴权和登录拦截的拦截器的配置
+ */
 @Configuration
 public class MyInterceptorConfiguration implements WebMvcConfigurer {
     AuthInterceptor authInterceptor;
@@ -16,6 +20,10 @@ public class MyInterceptorConfiguration implements WebMvcConfigurer {
         this.authInterceptor = authInterceptor;
     }
 
+    /**
+     * 添加拦截路径
+     * @param registry InterceptorRegistry
+     */
     @Override
     public void addInterceptors(@NotNull InterceptorRegistry registry) {
         registry
