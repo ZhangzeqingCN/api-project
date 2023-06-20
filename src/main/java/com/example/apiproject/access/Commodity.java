@@ -1,5 +1,6 @@
 package com.example.apiproject.access;
 
+import com.example.delombok.access.Category;
 import jakarta.persistence.*;
 import lombok.*;
 

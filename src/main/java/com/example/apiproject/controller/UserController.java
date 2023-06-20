@@ -1,13 +1,15 @@
 package com.example.apiproject.controller;
 
-import com.example.apiproject.access.User;
-import com.example.apiproject.domain.Result;
-import com.example.apiproject.repository.UserRepository;
+import com.example.delombok.access.User;
+import com.example.delombok.domain.Result;
+import com.example.delombok.repository.UserRepository;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/user")
+@Tag(name = "UserController", description = "User相关接口控制器")
 public class UserController {
     private UserRepository userRepository;
 

@@ -1,6 +1,6 @@
 package com.example.apiproject.domain.req.auth;
 
-import com.example.apiproject.access.Gender;
+import com.example.delombok.access.Gender;
 import jakarta.validation.constraints.Email;
 import lombok.*;
 

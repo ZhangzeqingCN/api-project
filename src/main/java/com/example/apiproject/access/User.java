@@ -1,10 +1,10 @@
 package com.example.apiproject.access;
 
+import com.example.delombok.access.Gender;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
-import org.hibernate.engine.internal.Cascade;
 
 @Builder
 @Setter
@@ -26,7 +26,7 @@ public class User {
     @Builder.Default
     @Column(name = "Gender", length = 20)
     @NotBlank
-    Gender gender = Gender.Unknown;
+    com.example.delombok.access.Gender gender = Gender.Unknown;
 
     @Column(name = "Email", length = 50)
     @Email

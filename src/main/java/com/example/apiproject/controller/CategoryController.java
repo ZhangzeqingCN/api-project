@@ -1,11 +1,9 @@
 package com.example.apiproject.controller;
 
 
-
-
-import com.example.apiproject.access.Category;
-import com.example.apiproject.domain.Result;
-import com.example.apiproject.repository.CategoryRepository;
+import com.example.delombok.access.Category;
+import com.example.delombok.domain.Result;
+import com.example.delombok.repository.CategoryRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,16 +20,24 @@ public class CategoryController {
         this.categoryRepository = categoryRepository;
     }
 
-    //查询所有商品种类
+    /**
+     * 查询所有商品种类。
+     *
+     * @return 包含所有商品种类的结果对象。
+     */
     @GetMapping("/all")
     public Result findAll() {
         return Result.success(categoryRepository.findAll());
     }
 
-
-    //更新种类信息
+    /**
+     * 更新商品种类信息。
+     *
+     * @param category 要更新的商品种类对象。
+     * @return 更新结果的结果对象。
+     */
     @PutMapping
-    public Result updateCategory(@RequestBody Category category){
+    public Result updateCategory(@RequestBody Category category) {
         try {
             categoryRepository.save(category);
             return Result.success();
@@ -40,20 +46,32 @@ public class CategoryController {
         }
     }
 
-    //如果该商品种类下的商品不为null，则无法删除
+
+    /**
+     * 根据商品种类ID删除商品种类。
+     * 如果该商品种类下存在商品，则无法删除。
+     *
+     * @param categoryId 要删除的商品种类ID。
+     * @return 删除结果的结果对象。
+     */
     @DeleteMapping
-    public Result deleteCategoryById(@RequestParam Integer categoryId){
+    public Result deleteCategoryById(@RequestParam Integer categoryId) {
         try {
             categoryRepository.deleteById(categoryId);
             return Result.success();
-        }catch (Exception e){
+        } catch (Exception e) {
             return Result.error(e.getMessage()).addErrors(e);
         }
     }
 
-    //增加商品品种类信息
+    /**
+     * 添加商品种类信息。
+     *
+     * @param category 要添加的商品种类对象。
+     * @return 添加结果的结果对象。
+     */
     @PostMapping
-    public Result addCategory(@RequestBody Category category){
+    public Result addCategory(@RequestBody Category category) {
         try {
             categoryRepository.save(category);
             return Result.success();
@@ -61,4 +79,5 @@ public class CategoryController {
             return Result.error(e.getMessage()).addErrors(e);
         }
     }
+
 }

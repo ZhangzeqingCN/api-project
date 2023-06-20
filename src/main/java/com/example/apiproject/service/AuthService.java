@@ -1,11 +1,11 @@
 package com.example.apiproject.service;
 
-import com.example.apiproject.domain.Result;
-import com.example.apiproject.domain.req.auth.LoginRequestBody;
-import com.example.apiproject.domain.req.auth.RegisterRequestBody;
-import com.example.apiproject.access.User;
-import com.example.apiproject.repository.UserRepository;
-import com.example.apiproject.utils.MyJwtUtil;
+import com.example.delombok.domain.Result;
+import com.example.delombok.domain.req.auth.LoginRequestBody;
+import com.example.delombok.domain.req.auth.RegisterRequestBody;
+import com.example.delombok.access.User;
+import com.example.delombok.repository.UserRepository;
+import com.example.delombok.utils.MyJwtUtil;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -19,13 +19,12 @@ import java.util.Objects;
 import java.util.Optional;
 
 /**
- * @apiNote 用于用户权限的识别
+ * Service class for user authentication and authorization.
  */
 @Service
 @Slf4j
 public class AuthService {
     private UserRepository userRepository;
-
     private MyJwtUtil jwtUtil;
 
     @Autowired
@@ -39,21 +38,21 @@ public class AuthService {
     }
 
     /**
+     * Authenticates a user based on the login credentials.
      *
-     * @param loginRequestBody login request body
-     * @param response login request response
-     * @return login result
+     * @param loginRequestBody The login request body containing the username and password.
+     * @param response         The HTTP response object.
+     * @return The authentication result.
      */
     @NotNull
     public Result login(@NotNull LoginRequestBody loginRequestBody, @NotNull HttpServletResponse response) {
         if (!userRepository.existsByNameAndPassword(loginRequestBody.getUsername(), loginRequestBody.getPassword())) {
-            // 登录失败 wrong username %s or password %s
-            String message = String.format("wrong username %s or password %s", loginRequestBody.getUsername(), loginRequestBody.getPassword());
+            String message = String.format("Wrong username %s or password %s", loginRequestBody.getUsername(), loginRequestBody.getPassword());
             log.info(message);
             return Result.error(message).addErrors(message).addErrors(loginRequestBody);
         }
 
-        log.info(String.format("login username %s with password %s", loginRequestBody.getUsername(), loginRequestBody.getPassword()));
+        log.info(String.format("User logged in: username %s", loginRequestBody.getUsername()));
 
         setTokenCookie(loginRequestBody.getUsername(), response);
 
@@ -61,21 +60,21 @@ public class AuthService {
     }
 
     /**
+     * Registers a new user.
      *
-     * @param registerRequestBody register request body
-     * @return Result
+     * @param registerRequestBody The register request body containing the username, password, and gender.
+     * @return The registration result.
      */
     @NotNull
     public Result register(@NotNull RegisterRequestBody registerRequestBody) {
-
         if (userRepository.existsByName(registerRequestBody.getUsername())) {
-            String message = String.format("username %s already exists", registerRequestBody.getUsername());
+            String message = String.format("Username %s already exists", registerRequestBody.getUsername());
             log.info(message);
             return Result.error(message).addErrors(registerRequestBody.getUsername());
         }
 
         if (!Objects.equals(registerRequestBody.getPassword1(), registerRequestBody.getPassword2())) {
-            String message = "inconsistent two passwords";
+            String message = "The two passwords provided do not match";
             log.info(message);
             return Result.error(message);
         }
@@ -90,14 +89,14 @@ public class AuthService {
     }
 
     /**
-     * 设置token
+     * Sets the token as a cookie in the HTTP response.
      *
-     * @param username 用户名
-     * @param response 当次的响应
+     * @param username The username.
+     * @param response The HTTP response object.
      */
     public void setTokenCookie(String username, @NotNull HttpServletResponse response) {
         String token = jwtUtil.createToken(username);
-        log.info(String.format("new token for %s: %s", username, token));
+        log.info(String.format("New token for user %s: %s", username, token));
         var cookie = new Cookie("token", token);
         cookie.setPath("/");
         cookie.setMaxAge(30000000);
@@ -105,23 +104,23 @@ public class AuthService {
     }
 
     /**
-     * 清除token
+     * Removes the token cookie from the HTTP response.
      *
-     * @param response 当次的响应
+     * @param response The HTTP response object.
      */
     public void removeTokenCookie(@NotNull HttpServletResponse response) {
         var cookie = new Cookie("token", "");
         cookie.setPath("/");
-        cookie.setMaxAge(30000000);
+        cookie.setMaxAge(0);
         response.addCookie(cookie);
     }
 
     /**
-     * 检查token的有效性并更新token
+     * Validates the token in the HTTP request and updates the token.
      *
-     * @param request  当次的请求
-     * @param response 当次的响应
-     * @return 结果
+     * @param request  The HTTP request object.
+     * @param response The HTTP response object.
+     * @return The validation and update result.
      */
     @NotNull
     public Result validateAndUpdateToken(@NotNull HttpServletRequest request, @NotNull HttpServletResponse response) {
@@ -129,7 +128,7 @@ public class AuthService {
 
         if (cookies == null || cookies.length == 0) {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            var message = String.format("%s: No token in cookie", request.getRequestURL());
+            var message = String.format("%s: No token in the cookie", request.getRequestURL());
             log.info(message);
             return Result.error(message);
         }
@@ -137,12 +136,12 @@ public class AuthService {
         Optional<Cookie> optionalCookie = Arrays.stream(cookies).filter(cookie -> cookie.getName().equals("token")).findAny();
         String token = optionalCookie.map(Cookie::getValue).orElse("");
 
-        log.info(String.format("old token: %s", token));
+        log.info(String.format("Old token: %s", token));
         var optionalUsername = jwtUtil.decodeToken(token);
 
         if (optionalUsername.isEmpty()) {
             response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-            var message = String.format("%s: No username in token", request.getRequestURL());
+            var message = String.format("%s: No username in the token", request.getRequestURL());
             log.info(message);
             return Result.error(message);
         }

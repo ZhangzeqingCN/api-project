@@ -1,7 +1,7 @@
 package com.example.apiproject.interceptor;
 
 
-import com.example.apiproject.service.AuthService;
+import com.example.delombok.service.AuthService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;

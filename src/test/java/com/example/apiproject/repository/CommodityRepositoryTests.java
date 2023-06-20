@@ -1,6 +1,6 @@
 package com.example.apiproject.repository;
 
-import com.example.apiproject.access.Commodity;
+import com.example.delombok.repository.CommodityRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import java.util.Arrays;
 @Slf4j
 public class CommodityRepositoryTests {
 
-    private CommodityRepository commodityRepository;
+    private com.example.delombok.repository.CommodityRepository commodityRepository;
 
     @Autowired
     public void setCommodityRepository(CommodityRepository commodityRepository) {

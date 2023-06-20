@@ -1,5 +1,7 @@
 package com.example.apiproject.access;
 
+import com.example.delombok.access.Commodity;
+import com.example.delombok.access.User;
 import jakarta.persistence.*;
 import lombok.*;
 

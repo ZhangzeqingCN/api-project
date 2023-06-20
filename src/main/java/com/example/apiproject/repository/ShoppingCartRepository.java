@@ -1,8 +1,8 @@
 package com.example.apiproject.repository;
 
 
-import com.example.apiproject.access.ShoppingCart;
-import com.example.apiproject.access.User;
+import com.example.delombok.access.ShoppingCart;
+import com.example.delombok.access.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
