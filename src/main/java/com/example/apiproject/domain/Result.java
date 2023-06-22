@@ -17,19 +17,19 @@ public class Result {
     private Object data;
     public final List<Object> errors = new ArrayList<>();
 
-    public static com.example.delombok.domain.Result success() {
-        return com.example.delombok.domain.Result.builder().success(true).build();
+    public static Result success() {
+        return Result.builder().success(true).build();
     }
 
-    public static com.example.delombok.domain.Result success(Object data) {
-        return com.example.delombok.domain.Result.builder().success(true).data(data).build();
+    public static Result success(Object data) {
+        return Result.builder().success(true).data(data).build();
     }
 
-    public static com.example.delombok.domain.Result error(String message) {
-        return com.example.delombok.domain.Result.builder().success(false).message(message).build();
+    public static Result error(String message) {
+        return Result.builder().success(false).message(message).build();
     }
 
-    public com.example.delombok.domain.Result addErrors(Object error) {
+    public Result addErrors(Object error) {
         errors.add(error);
         return this;
     }

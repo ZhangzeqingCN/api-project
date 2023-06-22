@@ -1,5 +1,6 @@
 package com.example.apiproject.domain.req.auth;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
 @Builder
@@ -10,7 +11,8 @@ import lombok.*;
 @ToString
 public class LoginRequestBody {
     @NonNull
-    private String username;
+    @Schema(example = "ZZQ1", defaultValue = "ZZQ2", description = "用户名")
+    String username;
     @NonNull
-    private String password;
+    String password;
 }

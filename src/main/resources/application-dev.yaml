@@ -24,10 +24,6 @@ springdoc:
     operations-sorter: alpha
   api-docs:
     path: /v3/api-docs
-  group-configs:
-    - group: 'hyc'
-      paths-to-match: '/**'
-      packages-to-scan: com.example.apiproject
 server:
   port: 8080
 

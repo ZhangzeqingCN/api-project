@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 public class GenderConverter implements AttributeConverter<com.example.delombok.access.Gender, Integer> {
     @Override
     public Integer convertToDatabaseColumn(@NotNull com.example.delombok.access.Gender g) {
-        return g.code;
+        return g.getCode();
     }
 
     @Override
