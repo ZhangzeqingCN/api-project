@@ -37,7 +37,7 @@ public class DataSourceInitializer implements CommandLineRunner {
         // users
         userRepository.save(User.builder().name("user").password("61259cdf-9cb1-4981-b926-35ebe0906c29").build());
         userRepository.save(User.builder().name("user1").password("123").build());
-        userRepository.save(User.builder().name("zzq").password("123").build());
+        userRepository.save(User.builder().name("ZZQ").password("123").build());
 
         final int initialUserNumber = 100;
         List<User> users = new ArrayList<>(initialUserNumber);

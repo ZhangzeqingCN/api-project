@@ -1,5 +1,6 @@
 package com.example.apiproject.domain;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.List;
 @ToString
 public class TResult<T> {
     private boolean success;
+    @Schema(description = "错误信息")
     private String message;
     private T data;
     public final List<Object> errors = new ArrayList<>();

@@ -1,5 +1,6 @@
 package com.example.apiproject.access;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -17,10 +18,14 @@ public class User {
     @Id
     @Column(name = "Username", length = 50, unique = true)
     @NotBlank
+    @Schema(example = testUserName, defaultValue = testUserName, description = "")
     String name;
+    public static final String testUserName = "ZZQ";
 
     @Column(name = "Password", length = 50)
+    @Schema(example = testPassword, defaultValue = testPassword)
     String password;
+    public static final String testPassword = "123";
 
     @Builder.Default
     @Column(name = "Gender", length = 20)
