@@ -1,6 +1,6 @@
 package com.example.apiproject.configuration;
 
-import com.example.delombok.utils.MyJwtUtil;
+import com.example.apiproject.utils.MyJwtUtil;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

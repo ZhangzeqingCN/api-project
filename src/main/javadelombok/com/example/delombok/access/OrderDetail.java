@@ -14,10 +14,10 @@ public class OrderDetail {
     private Integer orderDetailId;
     @ManyToOne
     @JoinColumn(name = "OrderID")
-    private com.example.delombok.access.Order order;
+    private Order order;
     @ManyToOne
     @JoinColumn(name = "CommodityID")
-    private com.example.delombok.access.Commodity commodity;
+    private Commodity commodity;
     @Column(name = "Quantity")
     private Integer quantity;
     @Column(name = "UnitPrice", precision = 10, scale = 2)
@@ -29,9 +29,9 @@ public class OrderDetail {
         @java.lang.SuppressWarnings("all")
         private Integer orderDetailId;
         @java.lang.SuppressWarnings("all")
-        private com.example.delombok.access.Order order;
+        private Order order;
         @java.lang.SuppressWarnings("all")
-        private com.example.delombok.access.Commodity commodity;
+        private Commodity commodity;
         @java.lang.SuppressWarnings("all")
         private Integer quantity;
         @java.lang.SuppressWarnings("all")
@@ -54,7 +54,7 @@ public class OrderDetail {
          * @return {@code this}.
          */
         @java.lang.SuppressWarnings("all")
-        public OrderDetail.OrderDetailBuilder order(final com.example.delombok.access.Order order) {
+        public OrderDetail.OrderDetailBuilder order(final Order order) {
             this.order = order;
             return this;
         }
@@ -63,7 +63,7 @@ public class OrderDetail {
          * @return {@code this}.
          */
         @java.lang.SuppressWarnings("all")
-        public OrderDetail.OrderDetailBuilder commodity(final com.example.delombok.access.Commodity commodity) {
+        public OrderDetail.OrderDetailBuilder commodity(final Commodity commodity) {
             this.commodity = commodity;
             return this;
         }
@@ -109,12 +109,12 @@ public class OrderDetail {
     }
 
     @java.lang.SuppressWarnings("all")
-    public void setOrder(final com.example.delombok.access.Order order) {
+    public void setOrder(final Order order) {
         this.order = order;
     }
 
     @java.lang.SuppressWarnings("all")
-    public void setCommodity(final com.example.delombok.access.Commodity commodity) {
+    public void setCommodity(final Commodity commodity) {
         this.commodity = commodity;
     }
 
@@ -134,12 +134,12 @@ public class OrderDetail {
     }
 
     @java.lang.SuppressWarnings("all")
-    public com.example.delombok.access.Order getOrder() {
+    public Order getOrder() {
         return this.order;
     }
 
     @java.lang.SuppressWarnings("all")
-    public com.example.delombok.access.Commodity getCommodity() {
+    public Commodity getCommodity() {
         return this.commodity;
     }
 

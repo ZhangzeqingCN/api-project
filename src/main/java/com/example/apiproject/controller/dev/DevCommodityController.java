@@ -2,10 +2,10 @@ package com.example.apiproject.controller.dev;
 
 
 
-import com.example.delombok.access.Category;
-import com.example.delombok.access.Commodity;
-import com.example.delombok.domain.Result;
-import com.example.delombok.repository.CommodityRepository;
+import com.example.apiproject.access.Category;
+import com.example.apiproject.access.Commodity;
+import com.example.apiproject.domain.Result;
+import com.example.apiproject.repository.CommodityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,6 +1,6 @@
 package com.example.apiproject.repository;
 
-import com.example.delombok.access.User;
+import com.example.apiproject.access.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

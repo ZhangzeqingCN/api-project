@@ -1,7 +1,7 @@
 package com.example.apiproject.controller;
 
 
-import com.example.delombok.domain.Result;
+import com.example.apiproject.domain.Result;
 import jakarta.servlet.http.HttpServletRequest;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.web.bind.annotation.GetMapping;

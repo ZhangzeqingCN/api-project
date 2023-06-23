@@ -12,7 +12,7 @@ import java.util.Arrays;
 @Slf4j
 public class CommodityRepositoryTests {
 
-    private com.example.delombok.repository.CommodityRepository commodityRepository;
+    private CommodityRepository commodityRepository;
 
     @Autowired
     public void setCommodityRepository(CommodityRepository commodityRepository) {

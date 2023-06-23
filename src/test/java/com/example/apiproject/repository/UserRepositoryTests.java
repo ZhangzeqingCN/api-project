@@ -12,7 +12,7 @@ import java.util.Arrays;
 @Slf4j
 public class UserRepositoryTests {
 
-    private com.example.delombok.repository.UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Autowired
     public void setUserRepository(UserRepository userRepository) {

@@ -1,11 +1,11 @@
 package com.example.apiproject.service;
 
-import com.example.delombok.domain.Result;
-import com.example.delombok.domain.req.auth.LoginRequestBody;
-import com.example.delombok.domain.req.auth.RegisterRequestBody;
-import com.example.delombok.access.User;
-import com.example.delombok.repository.UserRepository;
-import com.example.delombok.utils.MyJwtUtil;
+import com.example.apiproject.domain.Result;
+import com.example.apiproject.domain.req.auth.LoginRequestBody;
+import com.example.apiproject.domain.req.auth.RegisterRequestBody;
+import com.example.apiproject.access.User;
+import com.example.apiproject.repository.UserRepository;
+import com.example.apiproject.utils.MyJwtUtil;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

@@ -1,9 +1,9 @@
 package com.example.apiproject.initializer;
 
-import com.example.delombok.access.Commodity;
-import com.example.delombok.access.User;
-import com.example.delombok.repository.CommodityRepository;
-import com.example.delombok.repository.UserRepository;
+import com.example.apiproject.access.Commodity;
+import com.example.apiproject.access.User;
+import com.example.apiproject.repository.CommodityRepository;
+import com.example.apiproject.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

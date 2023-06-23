@@ -1,6 +1,6 @@
 package com.example.apiproject.configuration;
 
-import com.example.delombok.interceptor.AuthInterceptor;
+import com.example.apiproject.interceptor.AuthInterceptor;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;

@@ -5,17 +5,17 @@ import jakarta.persistence.Converter;
 import org.jetbrains.annotations.NotNull;
 
 @Converter
-public class GenderConverter implements AttributeConverter<com.example.delombok.access.Gender, Integer> {
+public class GenderConverter implements AttributeConverter<Gender, Integer> {
     @Override
-    public Integer convertToDatabaseColumn(@NotNull com.example.delombok.access.Gender g) {
+    public Integer convertToDatabaseColumn(@NotNull Gender g) {
         return g.code;
     }
 
     @Override
-    public com.example.delombok.access.Gender convertToEntityAttribute(@NotNull Integer code) {
+    public Gender convertToEntityAttribute(@NotNull Integer code) {
         return switch (code) {
-            case 1 -> com.example.delombok.access.Gender.Male;
-            case 2 -> com.example.delombok.access.Gender.Female;
+            case 1 -> Gender.Male;
+            case 2 -> Gender.Female;
             default -> Gender.Unknown;
         };
     }

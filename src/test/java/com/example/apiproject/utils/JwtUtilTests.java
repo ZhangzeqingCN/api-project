@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 @Slf4j
 public class JwtUtilTests {
-    private com.example.delombok.utils.MyJwtUtil jwtUtil;
+    private MyJwtUtil jwtUtil;
 
     @Autowired
     public void setJwtUtil(MyJwtUtil jwtUtil) {

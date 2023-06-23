@@ -1,8 +1,8 @@
 package com.example.apiproject.repository;
 
 
-import com.example.delombok.access.Category;
-import com.example.delombok.access.Commodity;
+import com.example.apiproject.access.Category;
+import com.example.apiproject.access.Commodity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

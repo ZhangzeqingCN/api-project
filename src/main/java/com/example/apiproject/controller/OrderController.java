@@ -1,9 +1,9 @@
 package com.example.apiproject.controller;
 
-import com.example.delombok.access.Order;
-import com.example.delombok.access.User;
-import com.example.delombok.domain.Result;
-import com.example.delombok.repository.OrderRepository;
+import com.example.apiproject.access.Order;
+import com.example.apiproject.access.User;
+import com.example.apiproject.domain.Result;
+import com.example.apiproject.repository.OrderRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

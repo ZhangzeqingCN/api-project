@@ -1,10 +1,10 @@
 package com.example.apiproject.controller.dev;
 
 
-import com.example.delombok.access.Order;
-import com.example.delombok.access.OrderDetail;
-import com.example.delombok.domain.Result;
-import com.example.delombok.repository.OrderDetailRepository;
+import com.example.apiproject.access.Order;
+import com.example.apiproject.access.OrderDetail;
+import com.example.apiproject.domain.Result;
+import com.example.apiproject.repository.OrderDetailRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

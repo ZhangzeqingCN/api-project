@@ -1,6 +1,6 @@
 package com.example.apiproject.exceptionhandler;
 
-import com.example.delombok.domain.Result;
+import com.example.apiproject.domain.Result;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

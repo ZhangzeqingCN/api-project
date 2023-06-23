@@ -22,7 +22,7 @@ public class Commodity {
     private String imageUrl;
     @ManyToOne
     @JoinColumn(name = "categoryPid")
-    private com.example.delombok.access.Category category;
+    private Category category;
 
 
     @java.lang.SuppressWarnings("all")
@@ -40,7 +40,7 @@ public class Commodity {
         @java.lang.SuppressWarnings("all")
         private String imageUrl;
         @java.lang.SuppressWarnings("all")
-        private com.example.delombok.access.Category category;
+        private Category category;
 
         @java.lang.SuppressWarnings("all")
         CommodityBuilder() {
@@ -104,7 +104,7 @@ public class Commodity {
          * @return {@code this}.
          */
         @java.lang.SuppressWarnings("all")
-        public Commodity.CommodityBuilder category(final com.example.delombok.access.Category category) {
+        public Commodity.CommodityBuilder category(final Category category) {
             this.category = category;
             return this;
         }
@@ -157,7 +157,7 @@ public class Commodity {
     }
 
     @java.lang.SuppressWarnings("all")
-    public void setCategory(final com.example.delombok.access.Category category) {
+    public void setCategory(final Category category) {
         this.category = category;
     }
 
@@ -192,7 +192,7 @@ public class Commodity {
     }
 
     @java.lang.SuppressWarnings("all")
-    public com.example.delombok.access.Category getCategory() {
+    public Category getCategory() {
         return this.category;
     }
 

@@ -15,7 +15,7 @@ public class Order {
     private Integer orderId;
     @ManyToOne
     @JoinColumn(name = "Username")
-    private com.example.delombok.access.User user;
+    private User user;
     @Column(name = "OrderDate", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
     private Date orderDate;
     @Column(name = "OrderStatus", length = 50)
@@ -29,7 +29,7 @@ public class Order {
         @java.lang.SuppressWarnings("all")
         private Integer orderId;
         @java.lang.SuppressWarnings("all")
-        private com.example.delombok.access.User user;
+        private User user;
         @java.lang.SuppressWarnings("all")
         private Date orderDate;
         @java.lang.SuppressWarnings("all")
@@ -54,7 +54,7 @@ public class Order {
          * @return {@code this}.
          */
         @java.lang.SuppressWarnings("all")
-        public Order.OrderBuilder user(final com.example.delombok.access.User user) {
+        public Order.OrderBuilder user(final User user) {
             this.user = user;
             return this;
         }
@@ -109,7 +109,7 @@ public class Order {
     }
 
     @java.lang.SuppressWarnings("all")
-    public void setUser(final com.example.delombok.access.User user) {
+    public void setUser(final User user) {
         this.user = user;
     }
 
@@ -134,7 +134,7 @@ public class Order {
     }
 
     @java.lang.SuppressWarnings("all")
-    public com.example.delombok.access.User getUser() {
+    public User getUser() {
         return this.user;
     }
 

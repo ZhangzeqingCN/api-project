@@ -1,9 +1,9 @@
 package com.example.apiproject.controller;
 
-import com.example.delombok.domain.Result;
-import com.example.delombok.domain.req.auth.LoginRequestBody;
-import com.example.delombok.domain.req.auth.RegisterRequestBody;
-import com.example.delombok.service.AuthService;
+import com.example.apiproject.domain.Result;
+import com.example.apiproject.domain.req.auth.LoginRequestBody;
+import com.example.apiproject.domain.req.auth.RegisterRequestBody;
+import com.example.apiproject.service.AuthService;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;

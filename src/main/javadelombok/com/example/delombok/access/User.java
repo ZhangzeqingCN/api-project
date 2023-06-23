@@ -16,7 +16,7 @@ public class User {
     String password;
     @Column(name = "Gender", length = 20)
     @NotBlank
-    com.example.delombok.access.Gender gender;
+    Gender gender;
     @Column(name = "Email", length = 50)
     @Email
     String email;
@@ -26,8 +26,8 @@ public class User {
     String address;
 
     @java.lang.SuppressWarnings("all")
-    private static com.example.delombok.access.Gender $default$gender() {
-        return com.example.delombok.access.Gender.Unknown;
+    private static Gender $default$gender() {
+        return Gender.Unknown;
     }
 
 
@@ -40,7 +40,7 @@ public class User {
         @java.lang.SuppressWarnings("all")
         private boolean gender$set;
         @java.lang.SuppressWarnings("all")
-        private com.example.delombok.access.Gender gender$value;
+        private Gender gender$value;
         @java.lang.SuppressWarnings("all")
         private String email;
         @java.lang.SuppressWarnings("all")
@@ -74,7 +74,7 @@ public class User {
          * @return {@code this}.
          */
         @java.lang.SuppressWarnings("all")
-        public User.UserBuilder gender(final com.example.delombok.access.Gender gender) {
+        public User.UserBuilder gender(final Gender gender) {
             this.gender$value = gender;
             gender$set = true;
             return this;
@@ -109,7 +109,7 @@ public class User {
 
         @java.lang.SuppressWarnings("all")
         public User build() {
-            com.example.delombok.access.Gender gender$value = this.gender$value;
+            Gender gender$value = this.gender$value;
             if (!this.gender$set) gender$value = User.$default$gender();
             return new User(this.name, this.password, gender$value, this.email, this.phone, this.address);
         }
@@ -137,7 +137,7 @@ public class User {
     }
 
     @java.lang.SuppressWarnings("all")
-    public void setGender(final com.example.delombok.access.Gender gender) {
+    public void setGender(final Gender gender) {
         this.gender = gender;
     }
 
@@ -167,7 +167,7 @@ public class User {
     }
 
     @java.lang.SuppressWarnings("all")
-    public com.example.delombok.access.Gender getGender() {
+    public Gender getGender() {
         return this.gender;
     }
 

@@ -12,10 +12,10 @@ public class ShoppingCart {
     private Integer cartId;
     @ManyToOne
     @JoinColumn(name = "Username")
-    private com.example.delombok.access.User user;
+    private User user;
     @ManyToOne
     @JoinColumn(name = "CommodityID")
-    private com.example.delombok.access.Commodity commodity;
+    private Commodity commodity;
     @Column(name = "Quantity")
     private Integer quantity;
 
@@ -25,9 +25,9 @@ public class ShoppingCart {
         @java.lang.SuppressWarnings("all")
         private Integer cartId;
         @java.lang.SuppressWarnings("all")
-        private com.example.delombok.access.User user;
+        private User user;
         @java.lang.SuppressWarnings("all")
-        private com.example.delombok.access.Commodity commodity;
+        private Commodity commodity;
         @java.lang.SuppressWarnings("all")
         private Integer quantity;
 
@@ -48,7 +48,7 @@ public class ShoppingCart {
          * @return {@code this}.
          */
         @java.lang.SuppressWarnings("all")
-        public ShoppingCart.ShoppingCartBuilder user(final com.example.delombok.access.User user) {
+        public ShoppingCart.ShoppingCartBuilder user(final User user) {
             this.user = user;
             return this;
         }
@@ -57,7 +57,7 @@ public class ShoppingCart {
          * @return {@code this}.
          */
         @java.lang.SuppressWarnings("all")
-        public ShoppingCart.ShoppingCartBuilder commodity(final com.example.delombok.access.Commodity commodity) {
+        public ShoppingCart.ShoppingCartBuilder commodity(final Commodity commodity) {
             this.commodity = commodity;
             return this;
         }
@@ -94,12 +94,12 @@ public class ShoppingCart {
     }
 
     @java.lang.SuppressWarnings("all")
-    public void setUser(final com.example.delombok.access.User user) {
+    public void setUser(final User user) {
         this.user = user;
     }
 
     @java.lang.SuppressWarnings("all")
-    public void setCommodity(final com.example.delombok.access.Commodity commodity) {
+    public void setCommodity(final Commodity commodity) {
         this.commodity = commodity;
     }
 
@@ -114,12 +114,12 @@ public class ShoppingCart {
     }
 
     @java.lang.SuppressWarnings("all")
-    public com.example.delombok.access.User getUser() {
+    public User getUser() {
         return this.user;
     }
 
     @java.lang.SuppressWarnings("all")
-    public com.example.delombok.access.Commodity getCommodity() {
+    public Commodity getCommodity() {
         return this.commodity;
     }
 
