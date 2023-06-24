@@ -4,6 +4,8 @@ import com.example.apiproject.domain.Result;
 import com.example.apiproject.domain.req.auth.LoginRequestBody;
 import com.example.apiproject.domain.req.auth.RegisterRequestBody;
 import com.example.apiproject.service.AuthService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/auth")
 @Slf4j
+@Tag(name = "AuthController", description = "用户管理相关接口控制器")
 public class AuthController {
 
     private AuthService authService;
@@ -32,6 +35,7 @@ public class AuthController {
      */
     @PostMapping("/login")
     @NotNull
+    @Operation(summary = "用户登录", description = "用户登录")
     public Result login(@RequestBody @NotNull @Valid LoginRequestBody loginRequestBody, HttpServletResponse response) {
         return authService.login(loginRequestBody, response);
     }
@@ -44,6 +48,7 @@ public class AuthController {
      */
     @GetMapping("/logout")
     @NotNull
+    @Operation(summary = "用户注销登录", description = "用户注销登录")
     public Result logout(HttpServletResponse response) {
         authService.removeTokenCookie(response);
         return Result.success();
@@ -56,6 +61,7 @@ public class AuthController {
      * @return 注册结果的结果对象。
      */
     @PostMapping("/register")
+    @Operation(summary = "用户注册", description = "用户注册")
     public Result register(@RequestBody @NotNull @Valid RegisterRequestBody registerRequestBody) {
         return authService.register(registerRequestBody);
     }

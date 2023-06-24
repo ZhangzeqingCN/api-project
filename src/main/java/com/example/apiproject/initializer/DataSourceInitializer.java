@@ -39,22 +39,22 @@ public class DataSourceInitializer implements CommandLineRunner {
         userRepository.save(User.builder().name("user1").password("123").build());
         userRepository.save(User.builder().name("ZZQ").password("123").build());
 
-        final int initialUserNumber = 100;
-        List<User> users = new ArrayList<>(initialUserNumber);
-        for (int i = 0; i < initialUserNumber; i++) {
-            users.add(User.builder().name("user" + i).password(String.valueOf(i)).build());
-        }
-        userRepository.saveAll(users);
+//        final int initialUserNumber = 100;
+//        List<User> users = new ArrayList<>(initialUserNumber);
+//        for (int i = 0; i < initialUserNumber; i++) {
+//            users.add(User.builder().name("user" + i).password(String.valueOf(i)).build());
+//        }
+//        userRepository.saveAll(users);
 
         // commodities
         commodityRepository.save(Commodity.builder().price(0.2f).commodityName("Test").build());
 
-        final int initialCommodityNumber = 500;
-        List<Commodity> commodities = new ArrayList<>(initialCommodityNumber);
-        for (int i = 0; i < initialCommodityNumber; i++) {
-            commodities.add(Commodity.builder().commodityName("commodity" + i).build());
-        }
-        commodityRepository.saveAll(commodities);
+//        final int initialCommodityNumber = 500;
+//        List<Commodity> commodities = new ArrayList<>(initialCommodityNumber);
+//        for (int i = 0; i < initialCommodityNumber; i++) {
+//            commodities.add(Commodity.builder().commodityName("commodity" + i).build());
+//        }
+//        commodityRepository.saveAll(commodities);
 
 
     }

@@ -4,6 +4,9 @@ import com.example.apiproject.access.Order;
 import com.example.apiproject.access.User;
 import com.example.apiproject.domain.Result;
 import com.example.apiproject.repository.OrderRepository;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/order")
 @Slf4j
+@Tag(name = "OrderController", description = "订单相关接口控制器")
 public class OrderController {
     @Autowired
     private OrderRepository orderRepository;
@@ -21,6 +25,7 @@ public class OrderController {
      * @return 包含所有订单的结果对象。
      */
     @GetMapping("/all")
+    @Operation(summary = "查看所有订单", description = "查看所有订单")
     public Result all() {
         return Result.success(orderRepository.findAll());
     }
@@ -31,7 +36,8 @@ public class OrderController {
      * @param user 用户对象。
      * @return 包含符合条件的订单的结果对象。
      */
-    @GetMapping("/user")
+    @PostMapping("/user")
+    @Operation(summary = "根据用户查看订单", description = "根据用户查看订单")
     public Result findByUser(@RequestBody User user) {
         return Result.success(orderRepository.findByUser(user));
     }
@@ -43,7 +49,8 @@ public class OrderController {
      * @return 更新结果的结果对象。
      */
     @PutMapping
-    public Result updateOrder(@RequestBody Order order){
+    @Operation(summary = "更新订单信息", description = "更新订单信息")
+    public Result updateOrder(@RequestBody Order order) {
         try {
             orderRepository.save(order);
             return Result.success();
@@ -60,11 +67,12 @@ public class OrderController {
      * @return 删除结果的结果对象。
      */
     @DeleteMapping
-    public Result deleteOrderById(@RequestParam Integer orderId){
+    @Operation(summary = "根据订单ID删除订单", description = "根据订单ID删除订单")
+    public Result deleteOrderById(@RequestParam @Schema(defaultValue = "123") Integer orderId) {
         try {
             orderRepository.deleteById(orderId);
             return Result.success();
-        }catch (Exception e){
+        } catch (Exception e) {
             return Result.error(e.getMessage()).addErrors(e);
         }
     }
@@ -76,7 +84,8 @@ public class OrderController {
      * @return 添加结果的结果对象。
      */
     @PostMapping
-    public Result addOrder(@RequestBody Order order){
+    @Operation(summary = "添加订单", description = "添加订单")
+    public Result addOrder(@RequestBody Order order) {
         try {
             orderRepository.save(order);
             return Result.success();

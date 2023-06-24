@@ -4,6 +4,8 @@ package com.example.apiproject.controller;
 import com.example.apiproject.access.Category;
 import com.example.apiproject.domain.Result;
 import com.example.apiproject.repository.CategoryRepository;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/category")
 @Slf4j
+@Tag(name = "CategoryController", description = "分类相关接口控制器")
 public class CategoryController {
 
     private CategoryRepository categoryRepository;
@@ -26,6 +29,7 @@ public class CategoryController {
      * @return 包含所有商品种类的结果对象。
      */
     @GetMapping("/all")
+    @Operation(summary = "查询所有商品种类", description = "查询所有商品种类")
     public Result findAll() {
         return Result.success(categoryRepository.findAll());
     }
@@ -37,6 +41,7 @@ public class CategoryController {
      * @return 更新结果的结果对象。
      */
     @PutMapping
+    @Operation(summary = "更新商品种类信息", description = "更新商品种类信息")
     public Result updateCategory(@RequestBody Category category) {
         try {
             categoryRepository.save(category);
@@ -55,6 +60,7 @@ public class CategoryController {
      * @return 删除结果的结果对象。
      */
     @DeleteMapping
+    @Operation(summary = "根据商品种类ID删除商品种类", description = "根据商品种类ID删除商品种类。")
     public Result deleteCategoryById(@RequestParam Integer categoryId) {
         try {
             categoryRepository.deleteById(categoryId);
@@ -71,6 +77,7 @@ public class CategoryController {
      * @return 添加结果的结果对象。
      */
     @PostMapping
+    @Operation(summary = "添加商品种类信息", description = "添加商品种类信息")
     public Result addCategory(@RequestBody Category category) {
         try {
             categoryRepository.save(category);

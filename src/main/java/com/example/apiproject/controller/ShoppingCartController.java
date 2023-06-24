@@ -4,11 +4,14 @@ import com.example.apiproject.access.ShoppingCart;
 import com.example.apiproject.access.User;
 import com.example.apiproject.domain.Result;
 import com.example.apiproject.repository.ShoppingCartRepository;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/shoppingCart")
+@Tag(name = "ShoppingCartController", description = "购物车相关接口控制器")
 public class ShoppingCartController {
     @Autowired
     private ShoppingCartRepository shoppingCartRepository;
@@ -19,6 +22,7 @@ public class ShoppingCartController {
      * @return 包含所有购物车信息的结果对象。
      */
     @GetMapping("/all")
+    @Operation(summary = "查看所有购物车信息", description = "查看所有购物车信息")
     public Result findAll() {
         return Result.success(shoppingCartRepository.findAll());
     }
@@ -29,7 +33,8 @@ public class ShoppingCartController {
      * @param user 用户对象。
      * @return 包含符合条件的购物车信息的结果对象。
      */
-    @GetMapping("/user")
+    @PostMapping("/user")
+    @Operation(summary = "根据用户查看购物车", description = "根据用户查看购物车")
     public Result findAllByUser(@RequestBody User user) {
         return Result.success(shoppingCartRepository.findShoppingCartByUser(user));
     }
@@ -41,7 +46,8 @@ public class ShoppingCartController {
      * @return 更新结果的结果对象。
      */
     @PutMapping
-    public Result updateShoppingCart(@RequestBody ShoppingCart shoppingCart){
+    @Operation(summary = "更新购物车信息", description = "更新购物车信息")
+    public Result updateShoppingCart(@RequestBody ShoppingCart shoppingCart) {
         try {
             shoppingCartRepository.save(shoppingCart);
             return Result.success();
@@ -57,11 +63,12 @@ public class ShoppingCartController {
      * @return 删除结果的结果对象。
      */
     @DeleteMapping
-    public Result deleteShoppingCartById(@RequestParam Integer shoppingCartId){
+    @Operation(summary = "根据购物车ID删除购物车信息", description = "根据购物车ID删除购物车信息")
+    public Result deleteShoppingCartById(@RequestParam Integer shoppingCartId) {
         try {
             shoppingCartRepository.deleteById(shoppingCartId);
             return Result.success();
-        }catch (Exception e){
+        } catch (Exception e) {
             return Result.error(e.getMessage()).addErrors(e);
         }
     }
@@ -73,7 +80,8 @@ public class ShoppingCartController {
      * @return 添加结果的结果对象。
      */
     @PostMapping
-    public Result addShoppingCart(@RequestBody ShoppingCart shoppingCart){
+    @Operation(summary = "增加购物车信息", description = "增加购物车信息")
+    public Result addShoppingCart(@RequestBody ShoppingCart shoppingCart) {
         try {
             shoppingCartRepository.save(shoppingCart);
             return Result.success();

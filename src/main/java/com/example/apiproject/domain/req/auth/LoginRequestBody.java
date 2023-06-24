@@ -17,6 +17,6 @@ public class LoginRequestBody {
     @Schema(example = testUserName, defaultValue = testUserName, description = "用户名")
     String username;
     @NonNull
-    @Schema(example = testPassword, defaultValue = testPassword)
+    @Schema(example = testPassword, defaultValue = testPassword ,description = "密码")
     String password;
 }
