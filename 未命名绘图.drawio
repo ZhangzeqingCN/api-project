@@ -28,10 +28,10 @@
         <mxCell id="zPmClShUyptiGjfQgdNd-21" value="&lt;i&gt;K&lt;sub&gt;2&lt;/sub&gt;&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=0;" parent="zPmClShUyptiGjfQgdNd-25" vertex="1">
           <mxGeometry x="40" width="40" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="zPmClShUyptiGjfQgdNd-22" value="K3" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=0;" parent="zPmClShUyptiGjfQgdNd-25" vertex="1">
+        <mxCell id="zPmClShUyptiGjfQgdNd-22" value="&lt;i&gt;K&lt;sub&gt;3&lt;/sub&gt;&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=0;" parent="zPmClShUyptiGjfQgdNd-25" vertex="1">
           <mxGeometry x="80" width="40" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="zPmClShUyptiGjfQgdNd-23" value="K4" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=0;" parent="zPmClShUyptiGjfQgdNd-25" vertex="1">
+        <mxCell id="zPmClShUyptiGjfQgdNd-23" value="&lt;i&gt;K&lt;sub&gt;4&lt;/sub&gt;&lt;/i&gt;" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=0;" parent="zPmClShUyptiGjfQgdNd-25" vertex="1">
           <mxGeometry x="120" width="40" height="60" as="geometry" />
         </mxCell>
         <mxCell id="zPmClShUyptiGjfQgdNd-26" value="" style="group;strokeWidth=0;" parent="1" vertex="1" connectable="0">
