@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0" version="27.0.6">
   <diagram name="第 1 页" id="40HLDpTf6hF90Px6eQFz">
-    <mxGraphModel dx="1969" dy="1197" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1378" dy="838" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -351,13 +351,13 @@
             <mxPoint x="820" y="500" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="i_k5Os1gLRo7S7XsmiuL-59" value="Multi Head" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontFamily=Georgia;" vertex="1" parent="1">
+        <mxCell id="i_k5Os1gLRo7S7XsmiuL-59" value="Multi Head" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontFamily=Georgia;" vertex="1" parent="1">
           <mxGeometry x="1210" y="230" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="i_k5Os1gLRo7S7XsmiuL-61" value="Group Query" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontFamily=Georgia;" vertex="1" parent="1">
-          <mxGeometry x="1200" y="400" width="160" height="30" as="geometry" />
+        <mxCell id="i_k5Os1gLRo7S7XsmiuL-61" value="Group Query" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontFamily=Georgia;" vertex="1" parent="1">
+          <mxGeometry x="1210" y="400" width="160" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="i_k5Os1gLRo7S7XsmiuL-62" value="Multi Query" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontFamily=Georgia;" vertex="1" parent="1">
+        <mxCell id="i_k5Os1gLRo7S7XsmiuL-62" value="Multi Query" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=24;fontFamily=Georgia;" vertex="1" parent="1">
           <mxGeometry x="1210" y="570" width="160" height="30" as="geometry" />
         </mxCell>
       </root>
