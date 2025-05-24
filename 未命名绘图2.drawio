@@ -1432,10 +1432,10 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="xXYzk27rwWSeXjRiCBU7-57" value="MoA &amp;amp; MoH" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Georgia;" vertex="1" parent="1">
-          <mxGeometry x="1530" y="1030" width="69.97" height="20" as="geometry" />
+          <mxGeometry x="1870" y="1030" width="69.97" height="20" as="geometry" />
         </mxCell>
         <mxCell id="xXYzk27rwWSeXjRiCBU7-58" value="Improved" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontFamily=Georgia;" vertex="1" parent="1">
-          <mxGeometry x="1530" y="1145" width="69.97" height="20" as="geometry" />
+          <mxGeometry x="1870" y="1145" width="69.97" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
